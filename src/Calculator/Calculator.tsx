@@ -1,10 +1,12 @@
-import React , { useState } from 'react';
+import React , { useReducer, useState } from 'react';
 import styled from 'styled-components'
 import { Button } from 'react-bootstrap'
 
-function Calculator() {
+const Calculator:React.FC =  () => {
   const [display, setDisplay] = useState('0')
   const [lastTyped, setLastTyped] = useState('')
+
+  // const [calculator, dispatch] = useReducer(CalculatorReducer, [])
 
   const changeDisplay = (e:any) => {
     let typed = e.target.textContent

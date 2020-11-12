@@ -19,7 +19,21 @@ function App() {
 }
 
 
-function Search({ value, onChange, children }) {
+
+interface User {
+  firstName: string;
+  lastName: string;
+}
+interface Props {
+  value: string;
+  onChange: (event: any) => void;
+  children: string;
+  headers?: {};
+  user?:User;
+  other?: boolean;
+}
+
+const Search:React.FC<Props> = function ({ value, onChange, children}) {
   return (
     <div>
       <label htmlFor="search">{children}</label>

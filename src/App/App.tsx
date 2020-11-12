@@ -8,10 +8,12 @@ import {
 import Home from '../Home/Home'
 import Calculator from '../Calculator/Calculator'
 import Calendar from '../Calendar/Calendar'
+import Counter from '../Counter/Counter'
 
 // Styling
 import { Button, Container, Form, FormControl, Nav, Navbar } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { count } from 'console';
 // import styled from 'styled-components'
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/calculator">Calculator</Nav.Link>
             <Nav.Link href="/calendar">Calendar</Nav.Link>
+            <Nav.Link href="/counter">Counter</Nav.Link>
           </Nav>
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -43,6 +46,17 @@ function App() {
           </Route>
           <Route path="/calendar">
             <Calendar />
+          </Route>
+          <Route path="/counter">
+            <Counter>
+            {(count, setCount) => (
+              <div>
+                <p>{count}</p>
+                <button onClick={() => setCount(count+1)}> Add One </button>
+                <button onClick={() => setCount(count-1)}> Subtract </button>
+              </div>
+            )}
+            </Counter>
           </Route>
         </Switch>
 
